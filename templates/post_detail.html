@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block imag %}{% static "img/post-bg.jpg" %}{% endblock imag %}
+
+{% block head %}
+    <div class="post-heading">
+        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+        <span class="meta">
+            Posted by {{ post.author }} on {{ post.created_on }}
+        </span>
+    </div>
+{%endblock head%}
+
+{% block content %}
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto">
+                <p class="card-text ">{{ object.content | safe }}</p>
+            </div>
+        </div>
+    </div>
+</article>
+
+{% endblock content %}
